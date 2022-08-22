@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <title>
+        Flipping card using HTML and CSS | 6
+    </title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            margin: 20px auto;
+            perspective: 200px;
+            transform-style: preserve-3d;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+            animation-name: flipCards;
+            animation-iteration-count: infinite;
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #fff;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        span.aces1 {
+            background-image: url(img/ace_heart.svg);
+        }
+
+        span.aces2 {
+            background-image: url(img/ace_spade.svg);
+            transform: rotateY(180deg);
+        }
+
+        @keyframes flipCards {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span class="aces1">
+        </span>
+        <span class="aces2">
+        </span>
+    </div>
+
+</body>
+
+</html>
