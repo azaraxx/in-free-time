@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <title>
+        Background Color Changer With Js
+    </title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.container {
+            margin: auto;
+            width: 250px;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        div.container>span {
+            width: 250px;
+            height: 250px;
+            display: block;
+            border: 1px solid #ccc;
+            margin-top: 30px;
+        }
+
+        input[type=color] {
+            width: 100px;
+            height: 30px;
+        }
+
+        button {
+            width: 120px;
+            float: right;
+            height: 30px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <input type="color" />
+            <button onclick="changeColor();">Change Color</button>
+        </div>
+        <span>
+        </span>
+    </div>
+
+    <script>
+        const changeColor = () => {
+            let colorPicker = document.querySelector('input'),
+                block = document.querySelector('span');
+
+            block.style.backgroundColor = colorPicker.value;
+        }
+    </script>
+</body>
+
+</html>
