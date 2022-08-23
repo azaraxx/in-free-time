@@ -13,24 +13,29 @@
 
         div.container {
             margin: auto;
-            width: 250px;
+            width: 400px;
             padding: 20px 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
+        div.container > div {
+            display: flex;
+            flex-direction: column;
+        }
 
         div.container>span {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             display: block;
             border: 1px solid #ccc;
             margin-top: 30px;
+            margin-left: 50px;
         }
 
         input[type=color] {
-            width: 100px;
+            width: 120px;
             height: 30px;
         }
 
@@ -38,7 +43,7 @@
             width: 120px;
             float: right;
             height: 30px;
-            margin-left: 30px;
+            margin-top: 30px;
         }
     </style>
 </head>
