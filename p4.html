@@ -1,0 +1,150 @@
+<html lang="en">
+
+<head>
+    <title>
+        Animated header search box | 4
+    </title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            height: 60px;
+            background-color: #333;
+        }
+
+        nav {
+            float: left;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            float: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 60px;
+        }
+
+        nav:before,
+        nav:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: #fff;
+            line-height: 60px;
+            text-decoration: none;
+            transition-property: background-color;
+            transition-duration: 200ms;
+            transition-timing-function: ease-in;
+            display: block;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        div.search {
+            float: right;
+            padding: 15px 0;
+        }
+
+        div.search input {
+            height: 30px;
+            border-radius: 15px;
+            border: 0;
+            background-color: #f1f1f1;
+            outline: 0;
+            font-size: 14px;
+            width: 110px;
+            padding: 0 15px;
+            letter-spacing: 0.02em;
+            transition-property: all;
+            transition-duration: 150ms;
+            transition-timing-function: ease-out;
+        }
+
+        div.search input::-webkit-input-placeholder {
+            color: #aaa;
+        }
+
+        div.search input:-ms-input-placeholder {
+            color: #aaa;
+        }
+
+        div.search input::placeholder {
+            color: #aaa;
+        }
+
+        div.search.filled input {
+            width: 200px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a>Home</a>
+                    </li>
+                    <li>
+                        <a>About</a>
+                    </li>
+                    <li>
+                        <a>Projects</a>
+                    </li>
+                    <li>
+                        <a>Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="search">
+                <input type="search" placeholder="Search..." onfocus="checkFilled()" onblur="checkFilled()" />
+            </div>
+        </div>
+    </header>
+
+    <script>
+        const searchBox = document.querySelector('input[type=search]')
+        const checkFilled = () => {
+            if (event.type == 'focus')
+                searchBox.parentElement.classList.add('filled');
+
+            else if (event.type == 'blur') {
+                if (searchBox.value == 0)
+                    searchBox.parentElement.classList.remove('filled');
+            }
+        }
+    </script>
+</body>
+
+</html>
