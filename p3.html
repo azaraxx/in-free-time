@@ -1,0 +1,138 @@
+<html lang="en">
+
+<head>
+    <title>
+        Calculator using HTML, CSS and Javascript | 5-61
+    </title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .calculator {
+            background-color: #13a3a1;
+            padding: 10px;
+            width: 232px;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+
+        .calculator input {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+            outline: 0;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            cursor: default;
+        }
+
+        .calculator button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #ddd;
+            border: 1px solid #bbb;
+            cursor: pointer;
+            transition-property: background-color;
+            transition-duration: 100ms;
+            transition-timing-function: ease-out;
+        }
+
+        .calculator button:active {
+            transform: translate3d(1px, 1px, -1px);
+        }
+
+        .calculator button:hover {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" readonly />
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="main" onclick="checkOperator('+');">+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="main" onclick="checkOperator('-');">-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="main" onclick="checkOperator('*');">*</button>
+        <button class="main" onclick="clean();">C</button>
+        <button>0</button>
+        <button class="main" onclick="equal();">=</button>
+        <button class="main" onclick="checkOperator('/');">/</button>
+    </div>
+
+    <script>
+        var total = '';
+        var backup = '';
+        var activeOperator = '';
+        let inputElem = document.querySelector('input[type=text]');
+        let numberBtn = document.querySelectorAll('button:not(.main)');
+
+        inputElem.value = '0';
+
+        numberBtn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                total += btn.innerHTML;
+                inputElem.value = total;
+            });
+        });
+
+        const clean = () => {
+            total = '', backup = '', activeOperator = '';
+            inputElem.value = total;
+        }
+
+        const checkOperator = newOperator => {
+            if (activeOperator != '' && activeOperator == newOperator && total != '')
+                equal();
+
+            activeOperator = newOperator;
+
+            if (total != '') {
+                backup = total;
+                total = '';
+            }
+        }
+
+        const equal = () => {
+            switch (activeOperator) {
+                case '+':
+                    total = parseInt(total) + parseInt(backup);
+                    break;
+                case '-':
+                    total = parseInt(backup) - parseInt(total);
+                    break;
+                case '*':
+                    total = parseInt(total) * parseInt(backup);
+                    break;
+                case '/':
+                    total = parseInt(backup) / parseInt(total);
+                    break;
+            }
+            inputElem.value = total;
+            backup = '';
+            activeOperator = '';
+        }
+
+    </script>
+</body>
+</html>
