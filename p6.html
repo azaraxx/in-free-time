@@ -1,0 +1,184 @@
+<html lang="en">
+
+<head>
+    <title>
+        Dropdown Menu with HTML & CSS | 49
+    </title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            height: 60px;
+            background-color: #333;
+        }
+
+        nav {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav > ul > li {
+            float: left;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 60px;
+        }
+
+        nav:before,
+        nav:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        nav li a {
+            cursor: pointer;
+        }
+        nav > ul > li > a {
+            font-size: 16px;
+            color: #fff;
+            line-height: 60px;
+            text-decoration: none;
+            transition-property: background-color;
+            transition-duration: 200ms;
+            transition-timing-function: ease-in;
+            display: block;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        nav > ul > li > a:hover {
+            background-color: #555;
+        }
+        nav li > ul {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            list-style: none;
+            padding: 0 10px;
+            margin: 0;
+            min-width: 150px;
+            background-color: #fff;
+            font-size: 16px;
+            box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        nav li > ul li {
+            line-height: 20px;
+            padding: 10px 0;
+        }
+        nav li > ul li a {
+            padding: 5px 0;
+            display: block;
+            color: #666;
+            font-weight: 500;
+        }
+        nav li > ul li a:hover {
+            text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+        }
+        nav li > ul li + li {
+            border-top: 1px solid #ddd;
+        }
+        nav li:hover > ul {
+            display: block;
+        }
+        nav li ul li.hasmenu:after {
+            content: '>';
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        nav li ul li > ul {
+            left: 100%;
+            top: 0;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a>Home</a>
+                    </li>
+                    <li>
+                        <a>About</a>
+                    </li>
+                    <li class="hasmenu">
+                        <a>Projects</a>
+                        <ul>
+                            <li>
+                                <a>List Item</a>
+                            </li>
+                            <li>
+                                <a>List Item</a>
+                            </li>
+                            <li>
+                                <a>List Item</a>
+                            </li>
+                            <li class="hasmenu">
+                                <a>List Item</a>
+                                <ul>
+                                    <li>
+                                        <a>Sub-list Item</a>
+                                    </li>
+                                    <li>
+                                        <a>Sub-list Item</a>
+                                    </li>
+                                    <li>
+                                        <a>Sub-list Item</a>
+                                    </li>
+                                    <li>
+                                        <a>Sub-list Item</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>
